@@ -13,8 +13,14 @@ function HouseKeeper(name, clean, age, yearsOfExperience) {
   this.clean = clean;
   this.age = age;
   this.yearsOfExperience = yearsOfExperience;
+
+  // method: a function associated with an object
+  this.clean = function () {
+    console.log('Cleaning in progress...');
+  }
 }
 
 var houseKeeper2 = new HouseKeeper("Bob", ["lobby", "bathroom"], 26, 5);
 
-console.log(houseKeeper2);
+// console.log(houseKeeper2);
+houseKeeper2.clean();
