@@ -56,6 +56,16 @@ function playSound(keySound) {
   }
 }
 
+// add button animation to the clicked
+function buttonAnimation(currentKey) {
+  var activeKey = document.querySelector("." + currentKey);
+  activeKey.classList.add("pressed");
+
+  setTimeout(function() {
+    activeKey.classList.remove("pressed");
+  }, 100)
+}
+
 // event listener: for clicking the sound button
 for (i = 0; i < btns.length; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function() {
@@ -68,6 +78,7 @@ for (i = 0; i < btns.length; i++) {
 
       playSound(buttonInnerHTML);
 
+      buttonAnimation(buttonInnerHTML);
     }
   );
 }
@@ -80,5 +91,7 @@ document.addEventListener("keydown", function (event) {
   var keyPressed = event.key;
 
   playSound(keyPressed);
+
+  buttonAnimation(keyPressed);
 
 });
